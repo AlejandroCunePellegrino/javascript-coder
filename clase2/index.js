@@ -40,7 +40,7 @@ if(edad > 17){
     alert("no es mayor de edad")
 } */
 
-/* let pito = prompt("Ingrese una medida en cm");
+let pito = prompt("Ingrese una medida en cm");
 if(pito < 5){
     alert("sos pito chico");
 }else if(pito < 10){
@@ -52,7 +52,7 @@ if(pito < 5){
 }else{
     alert("pene de kingkong");
 }
- */
+
 
 //Operadores
 
@@ -73,11 +73,11 @@ if((nombre != "") && (apellido != "")){
     alert("Pusiste cualquiera");
 }
  */
-let nombreIngresado   = prompt("Ingresar nombre");
+/* let nombreIngresado   = prompt("Ingresar nombre");
 let apellidoIngresado = prompt("Ingresar apellido");
 
 if((nombreIngresado !="") && (apellidoIngresado !="")){
     alert("Nombre: "+nombreIngresado +"\nApellido: "+apellidoIngresado); 
 }else{
     alert("Error: Ingresar nombre y apellido");
-}
+} */

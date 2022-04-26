@@ -33,7 +33,7 @@ for(let i = 0; i <= 10; i++){
 
 console.log("salimos del bucle"); */
 
-/* for(let i = 0; i < 5; i++){
+ for(let i = 0; i < 5; i++){
     console.log("iniciamos" + i);
 
     if(i === 3){
@@ -42,9 +42,9 @@ console.log("salimos del bucle"); */
     }
 
     console.log("terminamos" + i);
-}
+} 
 
-console.log("salimos del bucle"); */
+console.log("salimos del bucle");
 
 //while
 /* while(condicion){

@@ -1,0 +1,30 @@
+body{
+    margin: 0;
+    padding: 1em;
+    background-color: rgb(220, 226, 230);
+}
+
+header div{
+    background-color: rgb(56, 236, 236);
+    height: 100px;
+}
+
+.section1{
+    height: 200px;
+    background-color: rgb(91, 91, 206);
+}
+
+.section2{
+    height: 400px;
+    background-color: brown;
+}
+
+.aside{
+    height: 400px;
+    background-color: chartreuse;
+}
+
+.text{
+    font-size: 2em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
