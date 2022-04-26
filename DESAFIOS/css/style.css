@@ -28,3 +28,8 @@ header div{
     font-size: 2em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+footer div{
+    height: 200px;
+    background-color: chocolate;
+}
