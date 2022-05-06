@@ -41,6 +41,7 @@ class Perritos{
 }
 
 let adoptar
+const cementerio = [];
 let menu = prompt("Elija una opcion, luego adopte un perrito" + "\n 1. acciones" + "\n 2. cuidados");
 if(menu == "1"){
     do{
@@ -64,6 +65,7 @@ if(menu == "1"){
         }
                       
         alert("Has sacrificado a " + perrito1.nombre);
+        cementerio.push(`Mataste a ${perrito1.nombre}, que tenia ${perrito1.edad} años`);
         adoptar = prompt("¿Quieres adoptar otro perrito?(si/no)");
     }while(adoptar === "si");   
 }else if(menu == "2"){
@@ -84,13 +86,25 @@ if(menu == "1"){
             else{
                 alert("No introdujo una orden valida");
             }
-            cuidado = prompt("Dale una orden a " + perrito1.nombre + "\n1.dar de comer" + "\n2.bañarlo" + "\n3.acariciarlo" + "\n4.cepillar" + "\n 5. darlo en adopcion");
+            cuidado = prompt("Dale una orden a " + perrito1.nombre + "\n1.dar de comer" + "\n2.bañarlo" + "\n3.acariciarlo" + "\n4.cepillar" + "\n 5. darlo en adopcion" + "\n 6.");
         }
                       
         alert("Has sacrificado a " + perrito1.nombre);
+        cementerio.push(`Mataste a ${perrito1.nombre}, que tenia ${perrito1.edad} años`);
         adoptar = prompt("¿Quieres adoptar otro perrito?(si/no)");
     }while(adoptar === "si");
 }
 else{
     alert("Introdujo un comando invalido");
 }
+
+let cielito = prompt("¿Queres ver quien esta en el cielo de perritos?(si/no)");
+if(cielito == "si"){
+    for(const perrito of cementerio){
+        alert(perrito);
+    }
+    //cementerio.join();
+}else{
+    alert("gracias por jugar");
+}
+console.log(cementerio);
