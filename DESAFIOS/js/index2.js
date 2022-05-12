@@ -8,7 +8,7 @@ class Perritos{
     }
   //acciones
     correr(){
-      alert(this.nombre + " esta corriendo");
+      return this.nombre + " esta corriendo";
     }
   
     ladrar(){

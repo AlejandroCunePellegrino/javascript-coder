@@ -29,7 +29,7 @@ while(continuar == 'si') {
 
 //SIMULADOR DE MASCOTA
 
-class Perritos{
+/* class Perritos{
         constructor(nombre, edad){
           this.nombre = nombre;
           this.edad = edad;
@@ -54,11 +54,11 @@ class Perritos{
 }
       
 const perrito1 = new Perritos(prompt("Ingrese un nombre para su perrito"), prompt("Ingrese una edad para su perrito"));
-alert(perrito1.nombre + " ha sido adoptado");
+alert(perrito1.nombre + " ha sido adoptado"); */
 /* let menu = prompt("Elija una opcion" + "\n 1. acciones" + "\n 2. cuidados"); */
 
 //if(menu == "1"){
-        let orden = prompt("Dale una orden a " + perrito1.nombre + "\n1.correr" + "\n2.saltar" + "\n3. ladrar" + "\n4. dar patita");
+       /*  let orden = prompt("Dale una orden a " + perrito1.nombre + "\n1.correr" + "\n2.saltar" + "\n3. ladrar" + "\n4. dar patita");
         while(orden != "5"){
                 if(orden == "1"){
                     perrito1.correr();
@@ -75,7 +75,7 @@ alert(perrito1.nombre + " ha sido adoptado");
                 orden = prompt("Dale una orden a " + perrito1.nombre + "\n1.correr" + "\n2.saltar" + "\n3. ladrar" + "\n4. dar patita" + "\n5. hacer el muerto");
         }
               
-        alert("Has sacrificado a " + perrito1.nombre);
+        alert("Has sacrificado a " + perrito1.nombre); */
         /* let adoptar = prompt("¿Desea adopatr otro perrito? (si/no)"); */
        /*  if(adoptar == "si"){
                 const perrito1 = new Perritos(prompt("Ingrese un nombre para su perrito"), prompt("Ingrese una edad para su perrito"));
