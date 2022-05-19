@@ -7,6 +7,8 @@ let sueño = 100;
 let diversion = 100;
 let social = 100;
 
+// Declaramos un array
+//const acciones = [];
 /*
 	Esta función tiene la tarea de actualizar la información en pantalla
 de vez en cuando
@@ -104,7 +106,7 @@ function Dormir(){
 function Brincar(){
   diversion = 100;
   document.getElementById('diversion').innerHTML = diversion + '%';
-  document.getElementById('diversionn').style.width = diversion * 3 + 'px';
+  document.getElementById('diversion').style.width = diversion * 3 + 'px';
 }
 
 /*
@@ -120,3 +122,41 @@ function Conversar(){
   Ejecutamos el temporizador
 */
 Start();
+
+//Declaramos las acciones
+let comer = document.getElementById('comer');
+let baniar = document.getElementById('baniar');
+let dormir = document.getElementById('dormir');
+let brincar = document.getElementById('brincar');
+let hablar = document.getElementById('hablar');
+
+//Ejecutamos las accioines
+comer.addEventListener(`click`, (e) =>{
+  console.log("hice click");
+  Comer();
+  localStorage.setItem("comer", "esta lleno");
+})
+
+baniar.addEventListener(`click`, (e) =>{
+  console.log("hice click");
+  Banio();
+  localStorage.setItem("bañar", "esta limpio");
+})
+
+dormir.addEventListener(`click`, (e) =>{
+  console.log("hice click");
+  Dormir();
+  localStorage.setItem("dormir", "descansado");
+})
+
+brincar.addEventListener(`click`, (e) =>{
+  console.log("hice click");
+  Brincar();
+  localStorage.setItem("brincar", "se divirtio");
+})
+
+hablar.addEventListener(`click`, (e) =>{
+  console.log("hice click");
+  Conversar();
+  localStorage.setItem("hablar", "socializo");
+})
