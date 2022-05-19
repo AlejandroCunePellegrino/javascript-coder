@@ -1,27 +1,27 @@
 body{
     margin: 0;
-    padding: 1em;
+    padding: 0;
     background-color: rgb(220, 226, 230);
 }
 
 header div{
-    background-color: rgb(56, 236, 236);
+    background-color: rgb(18, 18, 18);
     height: 100px;
 }
 
 .section1{
-    height: 200px;
-    background-color: rgb(91, 91, 206);
+    height: 100px;
+    background-color: rgb(114, 193, 235);
 }
 
 .section2{
     height: 400px;
-    background-color: brown;
+    background-color: rgb(114, 193, 235);
 }
 
 .aside{
     height: 400px;
-    background-color: chartreuse;
+    background-color: rgb(114, 193, 235);
 }
 
 .text{
@@ -30,6 +30,63 @@ header div{
 }
 
 footer div{
+    height: 100px;
+    background-color: rgb(18, 18, 18);
+}
+
+.home{
+    height: 320px;
+    width: 100%;
+    margin: auto;
+    border-radius: 20%;
+    background-color: rgb(207, 32, 17);
+    box-shadow: 10px 10px 10px black;
+    padding-top: 30px;
+}
+
+.screen{
     height: 200px;
-    background-color: chocolate;
+    width: 270px;
+    background-color: aliceblue;
+    border-radius: 20%;
+    margin: auto;
+    
+}
+
+.pet{
+    height: 200px;
+    width: 100%;
+    border-radius: 20%;
+    text-align: center;
+    padding-top: 25px;
+}
+
+.perrito{
+    margin: auto;
+    height: 150px;
+}
+
+.boton{
+    display: block;
+    margin: 3px;
+    border: solid 2px black;
+    text-align: center;
+}
+
+.boton:hover{
+    background-color: brown;
+}
+
+.boton:active{
+    background-color: #99cc00;
+}
+
+.barra{
+    width: 300px;
+    background: #99cc00;
+    margin: 5px 10px;
+    border-radius:4px;
+    padding: 3px 3px;
+    display: block;
+    
 }
