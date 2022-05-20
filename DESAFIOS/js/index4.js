@@ -40,6 +40,9 @@ a continuación controlamos el nivel de satisfacción de la mascota
   else if(total > 50){
      document.getElementById("pet").src="images/perrito20.jpg";
   }
+  else if(total <= 0){
+    return 0;
+  }
 
   hambre = hambre - parseInt(time);
   higiene = higiene - parseInt(time);
@@ -130,33 +133,54 @@ let dormir = document.getElementById('dormir');
 let brincar = document.getElementById('brincar');
 let hablar = document.getElementById('hablar');
 
+
+//Objeto
+const acciones = {cantidad: 0, estado: ""};
+
+
 //Ejecutamos las accioines
 comer.addEventListener(`click`, (e) =>{
   console.log("hice click");
   Comer();
-  localStorage.setItem("comer", "esta lleno");
+  const comida = JSON.parse(localStorage.getItem("comer")) || acciones;
+  comida.cantidad++
+  comida.estado = "esta lleno"
+  localStorage.setItem("comer", JSON.stringify(comida));
+  
 })
 
 baniar.addEventListener(`click`, (e) =>{
   console.log("hice click");
   Banio();
-  localStorage.setItem("bañar", "esta limpio");
+  const banio = JSON.parse(localStorage.getItem("baniar")) || acciones;
+  banio.cantidad++
+  banio.estado = "esta limpio"
+  localStorage.setItem("baniar", JSON.stringify(banio));
 })
 
 dormir.addEventListener(`click`, (e) =>{
   console.log("hice click");
   Dormir();
-  localStorage.setItem("dormir", "descansado");
+  const siesta = JSON.parse(localStorage.getItem("dormir")) || acciones;
+  siesta.cantidad++
+  siesta.estado = "esta descansado"
+  localStorage.setItem("dormir", JSON.stringify(siesta));
 })
 
 brincar.addEventListener(`click`, (e) =>{
   console.log("hice click");
   Brincar();
-  localStorage.setItem("brincar", "se divirtio");
+  const saltar = JSON.parse(localStorage.getItem("salto")) || acciones;
+  saltar.cantidad++
+  saltar.estado = "salto"
+  localStorage.setItem("salto", JSON.stringify(saltar));
 })
 
 hablar.addEventListener(`click`, (e) =>{
   console.log("hice click");
   Conversar();
-  localStorage.setItem("hablar", "socializo");
+  const charla = JSON.parse(localStorage.getItem("charlar")) || acciones;
+  charla.cantidad++
+  charla.estado = "socializo"
+  localStorage.setItem("charlar", JSON.stringify(charla));
 })
