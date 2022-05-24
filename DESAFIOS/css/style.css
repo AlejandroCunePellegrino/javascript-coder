@@ -41,14 +41,16 @@ section{
     padding-top: 1em;
 }
 footer div{
-    height: 100px;
+    height: 70px;
     background-color: #e1e0dd;
     padding-top: 1.5em;
+    border-top: solid 1px black;
 }
 
 footer div p{
     margin: 0;
     padding: 0;
+    text-align: center;
 }
 
 .home{
@@ -83,6 +85,11 @@ footer div p{
     height: 150px;
 }
 
+.jugar{
+    margin-top: 10px;
+    text-align: center;
+    font-size: 2em;
+}
 .boton{
     display: block;
     margin: 5px;

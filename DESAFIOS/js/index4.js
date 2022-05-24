@@ -7,23 +7,31 @@ let sueño = 100;
 let diversion = 100;
 let social = 100;
 
+
 // Declaramos un array
 //const acciones = [];
 /*
 	Esta función tiene la tarea de actualizar la información en pantalla
 de vez en cuando
 */
-function Loop(time = 2){
+function Loop(time = 10){
 
   let total = hambre + higiene + sueño + diversion + social;
 
-/*
- Si alguno de los atributos llega a 0 nuestra mascota muere!
-a continuación controlamos el nivel de satisfacción de la mascota
-*/
+  /*
+  Si alguno de los atributos llega a 0 nuestra mascota muere!
+  a continuación controlamos el nivel de satisfacción de la mascota
+  */
   if(hambre <= 0 || higiene <= 0 || sueño <= 0 || diversion <= 0 || social <= 0){
-     document.getElementById("pet").src="images/perrito0.jpg";
-     document.getElementById('mensaje').innerHTML = 'Dejaste morir a tu mascota, refresca la página';
+      document.getElementById("pet").src="images/perrito0.jpg";
+      document.getElementById('mensaje').innerHTML = 'Dejaste morir a tu mascota, refresca la página';
+      /* Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Dejaste morir a tu mascota, refresca la página!',
+        footer: '<a href="https://github.com/AlejandroCunePellegrino">¿Quiere conocer al creador?</a>'
+      }) */
+      clearInterval(temporizador);
   }
   else if(total > 400){
      document.getElementById("pet").src="images/perrito100.jpg";
@@ -40,10 +48,7 @@ a continuación controlamos el nivel de satisfacción de la mascota
   else if(total > 50){
      document.getElementById("pet").src="images/perrito20.jpg";
   }
-  else if(total <= 0){
-    return 0;
-  }
-
+  
   hambre = hambre - parseInt(time);
   higiene = higiene - parseInt(time);
   sueño = sueño - parseInt(time);
@@ -68,6 +73,7 @@ a continuación controlamos el nivel de satisfacción de la mascota
   document.getElementById('diversion').innerHTML = diversion + '%';
   document.getElementById('social').innerHTML = social + '%';
 }
+
 
 /*
 	Esta función es responsable de iniciar y llamar el temporizador de la función LOOP
@@ -124,7 +130,12 @@ function Conversar(){
 /*
   Ejecutamos el temporizador
 */
-Start();
+let jugar = document.getElementById('jugar');
+jugar.addEventListener('click', (e) =>{
+  console.log("se inicio el juego");
+  Start();
+})
+
 
 //Declaramos las acciones
 let comer = document.getElementById('comer');
