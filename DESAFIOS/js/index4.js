@@ -6,7 +6,7 @@ let higiene = 100;
 let sueño = 100;
 let diversion = 100;
 let social = 100;
-
+let temporizador;
 
 // Declaramos un array
 //const acciones = [];
@@ -24,14 +24,15 @@ function Loop(time = 10){
   */
   if(hambre <= 0 || higiene <= 0 || sueño <= 0 || diversion <= 0 || social <= 0){
       document.getElementById("pet").src="images/perrito0.jpg";
-      document.getElementById('mensaje').innerHTML = 'Dejaste morir a tu mascota, refresca la página';
-      /* Swal.fire({
+      //document.getElementById('mensaje').innerHTML = 'Dejaste morir a tu mascota, refresca la página';
+      clearInterval(temporizador);
+      console.log("cmurio");
+      Swal.fire({
         icon: 'error',
         title: 'Oops...',
         text: 'Dejaste morir a tu mascota, refresca la página!',
-        footer: '<a href="https://github.com/AlejandroCunePellegrino">¿Quiere conocer al creador?</a>'
-      }) */
-      clearInterval(temporizador);
+        footer: '<a href="https://github.com/AlejandroCunePellegrino" target= _blank>¿Quiere conocer al creador?</a>'
+      }) 
   }
   else if(total > 400){
      document.getElementById("pet").src="images/perrito100.jpg";
@@ -79,7 +80,7 @@ function Loop(time = 10){
 	Esta función es responsable de iniciar y llamar el temporizador de la función LOOP
 */
 function Start(){
-  let temporizador = setInterval(Loop, 1000);
+  temporizador = setInterval(Loop, 1000);
 }
 
 /*
