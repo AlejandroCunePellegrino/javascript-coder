@@ -8,8 +8,7 @@ let diversion = 100;
 let social = 100;
 let temporizador;
 
-// Declaramos un array
-//const acciones = [];
+
 /*
 	Esta función tiene la tarea de actualizar la información en pantalla
 de vez en cuando
@@ -24,8 +23,6 @@ function Loop(time = 10){
   */
   if(hambre <= 0 || higiene <= 0 || sueño <= 0 || diversion <= 0 || social <= 0){
       document.getElementById("pet").src="images/perrito0.jpg";
-      //document.getElementById('mensaje').innerHTML = 'Dejaste morir a tu mascota, refresca la página';
-      clearInterval(temporizador);
       console.log("cmurio");
       Swal.fire({
         icon: 'error',
@@ -33,7 +30,8 @@ function Loop(time = 10){
         text: 'Dejaste morir a tu mascota, refresca la página!',
         footer: '<a href="https://github.com/AlejandroCunePellegrino" target= _blank>¿Quiere conocer al creador?</a>'
       }) 
-  }
+      clearInterval(temporizador);
+    }
   else if(total > 400){
      document.getElementById("pet").src="images/perrito100.jpg";
   }
@@ -195,4 +193,47 @@ hablar.addEventListener(`click`, (e) =>{
   charla.cantidad++
   charla.estado = "socializo"
   localStorage.setItem("charlar", JSON.stringify(charla));
+})
+
+//app clima
+
+window.addEventListener('load', ()=> {
+  let lon 
+  let lat 
+
+  let temperaturaValor = document.getElementById('temperatura-valor')  
+  let temperaturaDescripcion = document.getElementById('temperatura-descripcion')   
+  let ubicacion = document.getElementById('ubicacion')  
+  
+
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition( posicion => {
+      //console.log(posicion.coords.latitude);
+      //console.log(posicion.coords.longitude);
+      lat = posicion.coords.latitude;
+      lon = posicion.coords.longitude;
+      
+      const urlapi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=398be54fee268104825d67b99dca5026&units=metric&lang=es`
+      //console.log(urlapi);
+
+      fetch(urlapi)
+        .then(response =>{ return response.json()})
+        .then(data => {
+          //console.log(data.main.temp);
+          let temp = Math.round(data.main.temp)
+          temperaturaValor.innerText = `${temp}°C`
+
+          //console.log(data.weather[0].description);
+          let desc = data.weather[0].description;
+          temperaturaDescripcion.innerText = desc.toUpperCase()
+
+          //console.log(data.name);
+          let ubi = data.name;
+          ubicacion.innerText = `${ubi}` 
+        })
+        .catch(error => {
+          console.log(error);
+        })
+    })
+  }
 })

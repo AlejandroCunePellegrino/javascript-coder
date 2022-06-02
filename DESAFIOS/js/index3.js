@@ -1,5 +1,5 @@
 //SIMULADOR DE MASCOTA
-
+/* 
 class Perritos{
     constructor(nombre, edad){
       this.nombre = nombre;
@@ -65,3 +65,4 @@ adoptar.addEventListener("click", (e) => {
     mostrarPerritos();
     
 });
+ */
