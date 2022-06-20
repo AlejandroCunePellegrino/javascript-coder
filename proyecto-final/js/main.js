@@ -194,7 +194,7 @@ const contenedorCards = document.getElementById("contenedor-cards");
 const llamarEscenario = async() => {
   const response = await fetch("../data/miescenario.json")
   const data = await response.json()
-  //console.log(data);
+  console.log(data);
 
   data.forEach(escenario => {
     let card = document.createElement("div");

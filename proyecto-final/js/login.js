@@ -1,6 +1,12 @@
 let nombre = document.getElementById('nombre');
 let pw = document.getElementById('pw');
 let btnEnter = document.getElementById("btnEnter");
+const loginText = document.querySelector(".title-text .login");
+const loginForm = document.querySelector("form.login");
+const loginBtn = document.querySelector("label.login");
+const signupBtn = document.querySelector("label.signup");
+
+
 
 signupBtn.addEventListener("click", () => {
     loginForm.style.marginLeft = "-50%";
@@ -26,12 +32,9 @@ btnRegister.addEventListener("click", () => {
 
 
 function check() {
-
-    
     let storedNombre = localStorage.getItem('name');
     let storedPw = localStorage.getItem('pw');
 
-    
     let userName = document.getElementById('userName');
     let userPw = document.getElementById('userPw');
     let mensaje = document.getElementById("mensaje");
