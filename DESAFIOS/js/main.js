@@ -9,11 +9,7 @@ let social = 100;
 let temporizador;
 let jugar = document.getElementById('jugar');
 let parar = document.getElementById('parar');
-/* const usuario = {
-  nombre:"",
-  email:"",
-  pass:""
-} */
+
 
 /*
 	Esta función tiene la tarea de actualizar la información en pantalla
@@ -172,7 +168,7 @@ comer.addEventListener(`click`, (e) =>{
 })
 
 baniar.addEventListener(`click`, (e) =>{
-  console.log("hice click");
+  //console.log("hice click");
   Banio();
 })
 
@@ -198,7 +194,7 @@ const contenedorCards = document.getElementById("contenedor-cards");
 const llamarEscenario = async() => {
   const response = await fetch("../data/miescenario.json")
   const data = await response.json()
-  console.log(data);
+  //console.log(data);
 
   data.forEach(escenario => {
     let card = document.createElement("div");
