@@ -7,13 +7,19 @@ let sueño = 100;
 let diversion = 100;
 let social = 100;
 let temporizador;
-
+let jugar = document.getElementById('jugar');
+let parar = document.getElementById('parar');
+/* const usuario = {
+  nombre:"",
+  email:"",
+  pass:""
+} */
 
 /*
 	Esta función tiene la tarea de actualizar la información en pantalla
 de vez en cuando
 */
-function Loop(time = 10){
+function Loop(time = 2){
 
   let total = hambre + higiene + sueño + diversion + social;
 
@@ -22,7 +28,7 @@ function Loop(time = 10){
   a continuación controlamos el nivel de satisfacción de la mascota
   */
   if(hambre <= 0 || higiene <= 0 || sueño <= 0 || diversion <= 0 || social <= 0){
-      document.getElementById("pet").src="images/perrito0.jpg";
+      document.getElementById("pet").src="images/perrito0.png";
       console.log("cmurio");
       Swal.fire({
         icon: 'error',
@@ -33,19 +39,19 @@ function Loop(time = 10){
       clearInterval(temporizador);
     }
   else if(total > 400){
-     document.getElementById("pet").src="images/perrito100.jpg";
+     document.getElementById("pet").src="../images/perrito100.png";
   }
   else if(total > 300){
-     document.getElementById("pet").src="images/perrito80.jpg";
+     document.getElementById("pet").src="../images/perrito80.png";
   }
   else if(total > 200){
-     document.getElementById("pet").src="images/perrito60.jpg";
+     document.getElementById("pet").src="../images/perrito60.png";
   }
   else if(total > 100){
-     document.getElementById("pet").src="images/perrito40.jpg";
+     document.getElementById("pet").src="../images/perrito40.png";
   }
   else if(total > 50){
-     document.getElementById("pet").src="images/perrito20.jpg";
+     document.getElementById("pet").src="../images/perrito20.png";
   }
   
   hambre = hambre - parseInt(time);
@@ -79,6 +85,10 @@ function Loop(time = 10){
 */
 function Start(){
   temporizador = setInterval(Loop, 1000);
+}
+
+function Stop(){
+  clearInterval(temporizador);
 }
 
 /*
@@ -129,10 +139,20 @@ function Conversar(){
 /*
   Ejecutamos el temporizador
 */
-let jugar = document.getElementById('jugar');
-jugar.addEventListener('click', (e) =>{
+
+jugar.addEventListener('click', () => {
   console.log("se inicio el juego");
+  jugar.style.display = "none"
+  parar.style.display = "block"
   Start();
+})
+
+
+parar.addEventListener('click', () =>{
+  console.log("se paro el juego");
+  parar.style.display = "none"
+  jugar.style.display = "block"
+  Stop();
 })
 
 
@@ -144,96 +164,60 @@ let brincar = document.getElementById('brincar');
 let hablar = document.getElementById('hablar');
 
 
-//Objeto
-const acciones = {cantidad: 0, estado: ""};
-
 
 //Ejecutamos las accioines
 comer.addEventListener(`click`, (e) =>{
-  console.log("hice click");
+  //console.log("hice click");
   Comer();
-  const comida = JSON.parse(localStorage.getItem("comer")) || acciones;
-  comida.cantidad++
-  comida.estado = "esta lleno"
-  localStorage.setItem("comer", JSON.stringify(comida));
-  
 })
 
 baniar.addEventListener(`click`, (e) =>{
   console.log("hice click");
   Banio();
-  const banio = JSON.parse(localStorage.getItem("baniar")) || acciones;
-  banio.cantidad++
-  banio.estado = "esta limpio"
-  localStorage.setItem("baniar", JSON.stringify(banio));
 })
 
 dormir.addEventListener(`click`, (e) =>{
-  console.log("hice click");
+  //console.log("hice click");
   Dormir();
-  const siesta = JSON.parse(localStorage.getItem("dormir")) || acciones;
-  siesta.cantidad++
-  siesta.estado = "esta descansado"
-  localStorage.setItem("dormir", JSON.stringify(siesta));
 })
 
 brincar.addEventListener(`click`, (e) =>{
-  console.log("hice click");
+  //console.log("hice click");
   Brincar();
-  const saltar = JSON.parse(localStorage.getItem("salto")) || acciones;
-  saltar.cantidad++
-  saltar.estado = "salto"
-  localStorage.setItem("salto", JSON.stringify(saltar));
 })
 
 hablar.addEventListener(`click`, (e) =>{
-  console.log("hice click");
+  //console.log("hice click");
   Conversar();
-  const charla = JSON.parse(localStorage.getItem("charlar")) || acciones;
-  charla.cantidad++
-  charla.estado = "socializo"
-  localStorage.setItem("charlar", JSON.stringify(charla));
 })
 
-//app clima
 
-window.addEventListener('load', ()=> {
-  let lon 
-  let lat 
+//bichos
 
-  let temperaturaValor = document.getElementById('temperatura-valor')  
-  let temperaturaDescripcion = document.getElementById('temperatura-descripcion')   
-  let ubicacion = document.getElementById('ubicacion')  
-  
+const contenedorCards = document.getElementById("contenedor-cards");
+const llamarEscenario = async() => {
+  const response = await fetch("../data/miescenario.json")
+  const data = await response.json()
+  console.log(data);
 
-  if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition( posicion => {
-      //console.log(posicion.coords.latitude);
-      //console.log(posicion.coords.longitude);
-      lat = posicion.coords.latitude;
-      lon = posicion.coords.longitude;
-      
-      const urlapi = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=398be54fee268104825d67b99dca5026&units=metric&lang=es`
-      //console.log(urlapi);
-
-      fetch(urlapi)
-        .then(response =>{ return response.json()})
-        .then(data => {
-          //console.log(data.main.temp);
-          let temp = Math.round(data.main.temp)
-          temperaturaValor.innerText = `${temp}°C`
-
-          //console.log(data.weather[0].description);
-          let desc = data.weather[0].description;
-          temperaturaDescripcion.innerText = desc.toUpperCase()
-
-          //console.log(data.name);
-          let ubi = data.name;
-          ubicacion.innerText = `${ubi}` 
-        })
-        .catch(error => {
-          console.log(error);
-        })
+  data.forEach(escenario => {
+    let card = document.createElement("div");
+    card.innerHTML =  `<img src="${escenario.img}" class="card-img-top img-fluid" alt="escenario">
+    <div class="card-body">
+    <h5 class="card-title text-center">${escenario.nombre}</h5>
+    <a href="#juego" class="btn btn-primary d-block mx-auto btn-center" id= "btnescenario${escenario.id}">Seleccionar</a>
+    </div>`
+    card.setAttribute("class", "card");
+    card.style.width = "18rem";
+    contenedorCards.append(card);
+    let btnEscenario = document.getElementById(`btnescenario${escenario.id}`);
+    btnEscenario.addEventListener("click", () => {
+      document.querySelector(".screen-fondo").innerHTML = `<img src= "${escenario.img}" class="screen-img" alt="escenario">`
     })
-  }
-})
+  });
+}
+
+llamarEscenario();
+
+
+

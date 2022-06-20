@@ -1,0 +1,11 @@
+[
+    {"nombre": "Hogar",
+     "img": "../images/escenario1.jpg",
+     "id": "1"},
+    {"nombre": "Jardin",
+     "img": "../images/escenario2.jpg",
+     "id": "2"},
+    {"nombre": "Nieve",
+     "img": "../images/escenario3.jpg",
+     "id": "3"}
+]
