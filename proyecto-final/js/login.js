@@ -38,7 +38,7 @@ function check() {
 
     if(userName.value == storedNombre && userPw.value == storedPw) {
         mensaje.innerText = "Te has logeado correctamente";
-        juego.innerHTML = `<a href= "html/tamagochi.html">Ir al juego</a>`
+        juego.innerHTML = `<a href= "proyecto-final/html/tamagochi.html">Ir al juego</a>`
     }else {
         mensaje.innerText = "Error, no estas registrado!"
     }
