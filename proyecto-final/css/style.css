@@ -20,17 +20,7 @@ section{
     justify-content: center;
     align-items: center;
 }
-/* .section2{
-} */
 
-/* .aside{
-    background-color: #D9CAB3;
-}
-
-.stats{
-    background-color: #D9CAB3;
-    
-} */
 .text{
     font-size: 2em;
 }
@@ -182,5 +172,4 @@ footer div p{
     margin-top: 2em;
 }
 
-/* LOGIN */
 
